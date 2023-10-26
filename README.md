@@ -1,8 +1,8 @@
 
-# CNR_GR01_SKY130NM
+# CNR_GR00_SKY130NM
 
 # Who
-wulff
+Carsten Wulff and Jonathan Sæthre Ege
 
 # Why
  <explain why you made this module>

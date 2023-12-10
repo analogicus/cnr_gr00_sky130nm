@@ -2,15 +2,6 @@
 # CNR_GR00_SKY130NM
 
 # Who
-<<<<<<< HEAD
-wulff
-
-# Why
- <explain why you made this module>
-
-# How
- <explain short how you made this module>
-=======
 Carsten Wulff 
 
 # Why
@@ -47,62 +38,21 @@ acting like an integrator.
 The output of the integrator is sampled by a strong arm comparator. The output
 signal is fed back to the IFT to reverse the integration.
 
->>>>>>> tsense
 
 
 # What
 
 | What            | Lib/Folder       | Cell/Name |
 | :-              | :-:              | :-:       |
-<<<<<<< HEAD
 | Schematic       | CNR_GR00_SKY130NM | CNR_GR00 |
 | Layout          | CNR_GR00_SKY130NM | CNR_GR00 |
 | LPE             | CNR_GR00_SKY130NM | CNR_GR00 |
-=======
-| Schematic       | CNR_GR01_SKY130NM | CNR_GR01 |
-| Layout          | CNR_GR01_SKY130NM | CNR_GR01 |
-| LPE             | CNR_GR01_SKY130NM | CNR_GR01 |
->>>>>>> tsense
+
 
 
 # Changelog/Plan
 | Version | Status | Comment|
 | :-| :-| :-|
-<<<<<<< HEAD
-|0.1.0 | :x: | Make something |
-
-
-# Signal interface
-| Signal       | Direction | Domain  | Description                               |
-| :---         | :---:     | :---:   | :---                                      |
-| VDD_1V8         | Input     | VDD_1V8 | Main supply                               |
-| VSS         | Input     | Ground  |                                           |
-| PWRUP_1V8     | Input    | VDD_1V8 | Power up the circuit                       |
-
-
-# Key parameters
-| Parameter           | Min     | Typ           | Max     | Unit  |
-| :---                | :-:     | :-:           | :-:     | :---: |
-| Technology          |         | Skywater 130 nm |         |       |
-| AVDD                | 1.7    | 1.8           | 1.9    | V     |
-| Temperature         | -40     | 27            | 125     | C     |
-
-
-# Status
-
-| Stage                       | TYPE | Status | Comment                        |
-| :---                        | :-:  | :---:  | :--:                           |
-| Specification               | DOC  | :x:    |                                |
-| Schematic                   | VIEW | :x:    |                                |
-| Schematic simulation        | VER  | N/A    |                                |
-| Layout                      | VIEW | :x:    |                                |
-| Layout parasitic extraction | VIEW | :x:    |                                |
-| LPE simulation              | VER  | :x:    |                                |
-| LVS                         | VER  | :x:    |                                |
-| DRC                         | VER  | :x:    |                                |
-| ERC                         | VER  | :x:    |                                |
-| ANT                         | VER  | :x:    |                                |
-=======
 |0.1.0 | :white_check_mark: | Working prototype |
 
 
@@ -152,4 +102,4 @@ The principle, however, seems to work well.
 
 
 ![](temp.svg)
->>>>>>> tsense
+

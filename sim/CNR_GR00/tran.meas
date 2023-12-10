@@ -1,0 +1,13 @@
+* Measure CNR_GR00
+
+.control
+
+echo "MEAS_START"
+
+foreach vtemp -40 -20 0 20 40 80 125
+load {cicname}_$vtemp
+meas tran DO_$vtemp avg v(vo_1v8) from=2u to=10u
+end
+
+echo "MEAS_END"
+.endc

@@ -89,7 +89,7 @@ optran 0 0 0 100p 2n 0
 
 foreach vtemp -40 -20 0 20 40 80 125
   option temp=$vtemp
-  tran 1n 10u 1n
+  tran 1n 20u 1n
   write {cicname}_$vtemp
 end
 

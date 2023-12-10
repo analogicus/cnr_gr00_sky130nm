@@ -9,6 +9,8 @@ frun = sys.argv[1]
 files = list()
 with open(frun) as fi:
     for line in fi:
+        if(line.startswith("*")):
+            continue
         files.append(line.strip() + ".yaml")
 
 
@@ -19,16 +21,24 @@ for fname in files:
 
     data = dict()
     vals = list()
+    offset = 0
     for k in obj:
         if("do" in k):
             (dd,v) = k.split("do_")
-            vals.append([int(v),obj[k]])
+            dv = int(v)
+            vals.append([dv,obj[k]])
+            if(dv==20):
+                offset = obj[k]
+
     df = pd.DataFrame(vals, columns=['x','y'])
     df = df.sort_values(by=['x', 'y'])
-    plt.plot(df.x,df.y,label=fname)
+    df["y"] = df["y"] - offset
+    df["est"] = -df["y"]*650 + 20
+    plt.plot(df["x"],df["est"],label=fname)
 
 
 plt.xlabel("Temperature [C]")
 plt.ylabel("Output")
 plt.legend()
-plt.show()
+plt.savefig("../../temp.svg")
+#plt.show()

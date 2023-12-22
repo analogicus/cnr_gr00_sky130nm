@@ -1,113 +1,99 @@
-v {xschem version=3.0.0 file_version=1.2 }
+v {xschem version=3.4.4 file_version=1.2
+}
 G {}
 K {}
 V {}
 S {}
 E {}
-N -80 -510 -30 -510 {
+T {Temperature sensor} 650 -1020 0 0 1 1 {}
+T {I = f(T) : DeltaVBE = (VD - VDA) = kT/q*ln(8)
+t = f(I) : DeltaVBE to current. Integrate current to generate a ramp on VO.
+D = f(t) : When VO > VD, then set output low. When VD < VO, set output high.
+
+The TFI and TTD forms a sigma-delta modulator, as such, the output is a pulse density modulated signal.} 150 -260 0 0 0.4 0.4 {}
+N 860 -700 910 -700 {
 lab=IBP_2U[2:0]}
-N -80 -490 -30 -490 {
+N 860 -680 910 -680 {
 lab=VD}
-N -80 -470 -30 -470 {
+N 860 -660 910 -660 {
 lab=VDA}
-N -380 -450 -30 -450 {
-lab=VSS}
-N -380 -470 -380 -450 {
-lab=VSS}
-N -420 -530 -30 -530 {
-lab=PWRUP_1V8}
-N -420 -530 -420 -490 {
-lab=PWRUP_1V8}
-N -420 -490 -380 -490 {
-lab=PWRUP_1V8}
-N -380 -570 -380 -510 {
-lab=VDD_1V8}
-N -380 -570 -30 -570 {
-lab=VDD_1V8}
-N -420 -550 -30 -550 {
-lab=RESET_1V8}
-N -560 -530 -420 -530 {
-lab=PWRUP_1V8}
-N -560 -570 -380 -570 {
-lab=VDD_1V8}
-N -560 -450 -380 -450 {
-lab=VSS}
-N -560 -550 -420 -550 {
-lab=RESET_1V8}
-N 270 -570 330 -570 {
-lab=VO_1V8}
-N 330 -570 420 -570 {
-lab=VO_1V8}
-N 140 -350 200 -350 {
-lab=DOWN_N_1V8}
-N 200 -420 200 -350 {
-lab=DOWN_N_1V8}
-N 570 -240 570 -200 {
-lab=PWRUP_1V8}
-N 600 -240 600 -200 {
-lab=VSS}
-N 600 -380 600 -360 {
-lab=VDD_1V8}
-N 480 -330 540 -330 {
-lab=VOP}
-N 480 -270 540 -270 {
-lab=#net1}
-N 640 -330 700 -330 {
-lab=DO_1V8}
-N 700 -330 720 -330 {
-lab=DO_1V8}
-N 330 -470 380 -470 {
+N 1120 -680 1180 -680 {
+lab=VO}
+N 1180 -680 1190 -680 {
+lab=VO}
+N 760 -700 860 -700 {
+lab=IBP_2U[2:0]}
+N 760 -680 860 -680 {
 lab=VD}
-N 330 -450 380 -450 {
-lab=VO_1V8}
-N 330 -490 380 -490 {
+N 760 -660 860 -660 {
+lab=VDA}
+N 1190 -680 1210 -680 {
+lab=VO}
+N 1120 -660 1210 -660 {
+lab=VD}
+N 380 -500 580 -500 {
+lab=PWRUP_1V8}
+N 580 -540 580 -500 {
+lab=PWRUP_1V8}
+N 580 -500 950 -500 {
+lab=PWRUP_1V8}
+N 950 -540 950 -500 {
+lab=PWRUP_1V8}
+N 380 -480 970 -480 {
+lab=RESET_1V8}
+N 970 -540 970 -480 {
+lab=RESET_1V8}
+N 990 -540 990 -460 {
+lab=DO_1V8}
+N 380 -440 1250 -440 {
 lab=CK_1V8}
-N 330 -510 380 -510 {
-lab=VDD_1V8}
-N 330 -430 380 -430 {
+N 380 -350 1370 -350 {
 lab=VSS}
-N 680 -510 730 -510 {
-lab=VON}
-N 680 -490 730 -490 {
-lab=VOP}
-N 290 -270 330 -270 {
+N 1370 -540 1370 -350 {
+lab=VSS}
+N 1090 -540 1090 -350 {
+lab=VSS}
+N 730 -540 730 -350 {
+lab=VSS}
+N 1380 -840 1380 -780 {
+lab=VDD_1V8}
+N 380 -840 1380 -840 {
+lab=VDD_1V8}
+N 730 -840 730 -780 {
+lab=VDD_1V8}
+N 1090 -840 1090 -780 {
+lab=VDD_1V8}
+N 1410 -680 1530 -680 {
+lab=DO_1V8}
+N 1450 -680 1450 -460 {
+lab=DO_1V8}
+N 990 -460 1450 -460 {
+lab=DO_1V8}
+N 1270 -540 1270 -440 {
 lab=CK_1V8}
-N 410 -270 480 -270 {
+N 1250 -440 1270 -440 {
+lab=CK_1V8}
+N 950 -500 1250 -500 {
+lab=PWRUP_1V8}
+N 1250 -540 1250 -500 {
+lab=PWRUP_1V8}
+N 760 -640 910 -640 {
 lab=#net1}
-N 370 -330 370 -310 {
-lab=VDD_1V8}
-N 370 -230 370 -190 {
-lab=VSS}
-C {cborder/border_s.sym} 520 0 0 0 {
+C {cborder/border_s.sym} 1250 -170 0 0 {
 user="wulff"
 company="wulff"}
-C {devices/ipin.sym} -560 -570 0 0 {name=p1 lab=VDD_1V8}
-C {devices/ipin.sym} -560 -450 0 0 {name=p2 lab=VSS}
-C {devices/ipin.sym} -560 -530 0 0 {name=p3 lab=PWRUP_1V8}
-C {CNR_GR00_SKY130NM/CNRG00_IFT.sym} -230 -490 0 0 {name=xi}
-C {CNR_GR00_SKY130NM/CNRG00_TFI.sym} 120 -510 0 0 {name=xt}
-C {devices/ipin.sym} -560 -550 0 0 {name=p4 lab=RESET_1V8}
-C {devices/lab_wire.sym} 330 -570 0 0 {name=p5 sig_type=std_logic lab=VO_1V8}
-C {devices/lab_wire.sym} -40 -510 0 0 {name=p6 sig_type=std_logic lab=IBP_2U[2:0]}
-C {devices/lab_wire.sym} -40 -490 0 0 {name=p7 sig_type=std_logic lab=VD}
-C {devices/lab_wire.sym} -40 -470 0 0 {name=p8 sig_type=std_logic lab=VDA}
-C {devices/opin.sym} 420 -570 0 0 {name=p9 lab=VO_1V8}
-C {devices/ipin.sym} 140 -350 0 0 {name=p10 lab=DOWN_N_1V8}
-C {SUN_TR_SKY130NM/SUNTR_DFRNQNX1_CV.sym} 540 -270 0 0 {name=x1 }
-C {devices/lab_wire.sym} 570 -200 0 0 {name=p11 sig_type=std_logic lab=PWRUP_1V8}
-C {devices/lab_wire.sym} 600 -200 0 1 {name=p12 sig_type=std_logic lab=VSS}
-C {devices/lab_wire.sym} 600 -380 0 1 {name=p13 sig_type=std_logic lab=VDD_1V8}
-C {devices/ipin.sym} 290 -270 0 0 {name=p14 lab=CK_1V8}
-C {devices/opin.sym} 720 -330 0 0 {name=p15 lab=DO_1V8}
-C {CNR_GR00_SKY130NM/CNRG00_STRCMP.sym} 530 -470 0 0 {name=xcmp}
-C {devices/lab_wire.sym} 370 -470 0 0 {name=p19 sig_type=std_logic lab=VD}
-C {devices/lab_wire.sym} 370 -450 0 0 {name=p20 sig_type=std_logic lab=VO_1V8}
-C {devices/lab_wire.sym} 370 -490 0 0 {name=p21 sig_type=std_logic lab=CK_1V8}
-C {devices/lab_wire.sym} 370 -510 0 0 {name=p22 sig_type=std_logic lab=VDD_1V8}
-C {devices/lab_wire.sym} 370 -430 0 0 {name=p23 sig_type=std_logic lab=VSS}
-C {devices/lab_wire.sym} 720 -510 0 0 {name=p24 sig_type=std_logic lab=VON}
-C {devices/lab_wire.sym} 720 -490 0 0 {name=p25 sig_type=std_logic lab=VOP}
-C {devices/lab_wire.sym} 510 -330 0 0 {name=p26 sig_type=std_logic lab=VOP}
-C {devices/lab_wire.sym} 370 -330 0 1 {name=p16 sig_type=std_logic lab=VDD_1V8}
-C {devices/lab_wire.sym} 370 -190 0 1 {name=p17 sig_type=std_logic lab=VSS}
-C {SUN_TR_SKY130NM/SUNTR_IVX1_CV.sym} 330 -270 0 0 {name=x2 }
+C {devices/ipin.sym} 380 -840 0 0 {name=p1 lab=VDD_1V8}
+C {devices/ipin.sym} 380 -350 0 0 {name=p2 lab=VSS}
+C {devices/ipin.sym} 380 -500 0 0 {name=p3 lab=PWRUP_1V8}
+C {CNR_GR00_SKY130NM/CNRG00_IFT.sym} 690 -670 0 0 {name=xi}
+C {CNR_GR00_SKY130NM/CNRG00_TFI.sym} 930 -560 0 0 {name=xt}
+C {devices/ipin.sym} 380 -480 0 0 {name=p4 lab=RESET_1V8}
+C {devices/lab_wire.sym} 1180 -680 0 0 {name=p5 sig_type=std_logic lab=VO}
+C {devices/lab_wire.sym} 900 -700 0 0 {name=p6 sig_type=std_logic lab=IBP_2U[2:0]}
+C {devices/lab_wire.sym} 900 -680 0 0 {name=p7 sig_type=std_logic lab=VD}
+C {devices/lab_wire.sym} 900 -660 0 0 {name=p8 sig_type=std_logic lab=VDA}
+C {devices/opin.sym} 1530 -680 0 0 {name=p9 lab=DO_1V8}
+C {CNR_GR00_SKY130NM/CNRG00_TTD.sym} 1230 -560 0 0 {name=xd}
+C {devices/lab_wire.sym} 1180 -660 0 0 {name=p11 sig_type=std_logic lab=VD}
+C {devices/ipin.sym} 380 -440 0 0 {name=p12 lab=CK_1V8}
+C {devices/lab_wire.sym} 900 -640 0 0 {name=p10 sig_type=std_logic lab=VDB}

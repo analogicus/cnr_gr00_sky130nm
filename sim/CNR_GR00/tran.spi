@@ -21,7 +21,7 @@
 .param TRF = 10p
 
 *- 8 MHz clock frequency
-.param PERIOD_CLK = 100n
+.param PERIOD_CLK = 200n
 
 *- 25% duty-cycle clock
 .param PW_CLK = PERIOD_CLK/2
@@ -44,14 +44,13 @@ VSS  VSS  0     dc 0
 VDD  VDD_1V8  0  pwl 0 0 10n {AVDD}
 VPW  PWRUP_1V8 0  pwl 0 0 10n {AVDD}
 VRE  RESET_1V8 0   pwl 0 {AVDD} 1u {AVDD} 1.001u 0
-VDWN  DOWN_N_1V8 0   pwl 0 {AVDD} 2u {AVDD} 2.001u 0
 
 VCLK CK_1V8 0 dc 0 pulse (0 {AVDD} 1u {TRF} {TRF} {PW_CLK} {PERIOD_CLK})
 
 *-----------------------------------------------------------------
 * DUT
 *-----------------------------------------------------------------
-XDUT VDD_1V8 VSS PWRUP_1V8 RESET_1V8 VO_1V8 DO_1V8 CK_1V8 DO_1V8 CNR_GR00
+XDUT VDD_1V8 VSS PWRUP_1V8 RESET_1V8 DO_1V8 CK_1V8 CNR_GR00
 
 *----------------------------------------------------------------
 * MEASURES
@@ -65,15 +64,20 @@ XDUT VDD_1V8 VSS PWRUP_1V8 RESET_1V8 VO_1V8 DO_1V8 CK_1V8 DO_1V8 CNR_GR00
 #ifdef Debug
 .save all
 #else
-.save v(VDD_1V8) v(VSS) v(PWRUP_1V8) v(RESET_1V8) v(VO_1V8) v(DOWN_N_1V8) v(DO_1V8) v(CK_1V8)
-.save v(xdut.ibp) v(xdut.vd) v(xdut.vda) v(xdut.xt.vg) v(xdut.xt.voa) v(xdut.xt.vref)
+.save v(VDD_1V8) v(VSS) v(PWRUP_1V8) v(RESET_1V8)  v(DO_1V8) v(CK_1V8)
+.save v(xdut.ibp) v(xdut.vd) v(xdut.vda) (xdut.vdb) v(xdut.xt.vg) v(xdut.xt.voa) v(xdut.xt.vref)
 .save v(xdut.xt.xota.vbp)
 .save v(xdut.xt.xota.vbn1)
 .save v(xdut.xt.xota.vbn2)
-.save v(xdut.von) v(xdut.vop)
-.save v(xdut.xcmp.von0)
-.save v(xdut.xcmp.vop0)
-.save v(xdut.xcmp.vs)
+.save v(xdut.vo)
+.save v(xdut.vdb)
+.save v(xdut.xi.vdb_on_1v8)
+.save v(xdut.xi.vda_on_1v8)
+.save v(xdut.xd.vop)
+.save v(xdut.xd.von)
+.save v(xdut.xd.xcmp.von0)
+.save v(xdut.xd.xcmp.vop0)
+.save v(xdut.xd.xcmp.vs)
 #endif
 
 *----------------------------------------------------------------
@@ -87,11 +91,22 @@ unset askquit
 
 optran 0 0 0 100p 2n 0
 
+#ifdef Nosweep
+
+option temp=-40
+
+tran 1n 4u 1n
+write {cicname}
+
+#else
+
 foreach vtemp -40 -20 0 20 40 80 125
   option temp=$vtemp
   tran 1n 20u 1n
   write {cicname}_$vtemp
 end
+
+#endif
 
 quit
 

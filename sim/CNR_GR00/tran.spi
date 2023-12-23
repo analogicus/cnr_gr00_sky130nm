@@ -99,7 +99,11 @@ end
 
 foreach vtemp -40 -20 0 20 40 80 125
   option temp=$vtemp
-  tran 1n 29.6u 1n
+*- 32*200n = 8.4 us =>
+*- 64*200n = 16.8us => +5us =22us
+*- 128*200n = 25.6us => +5u = 31us
+*- 256*200n = 55.2us => +5us = 61us
+  tran 1n 61u 1n
   write {cicname}_$vtemp
 end
 

@@ -123,21 +123,21 @@ N 550 -100 580 -100 {
 lab=IBP_1U[4]}
 N 550 -310 580 -310 {
 lab=IBP_1U[2]}
-N 640 -310 640 -200 {
-lab=VG}
 N 640 -100 680 -100 {
 lab=IDAC}
+N 640 -200 680 -200 {
+lab=VG}
 C {CNR_GR00_SKY130NM/CNRG00_OTAP.sym} 60 -10 0 0 {name=xota}
 C {cborder/border_s.sym} 490 340 0 0 {
 user="wulff"
 company="wulff"}
-C {SUN_TR_SKY130NM/SUNTR_RPPO4.sym} -350 -30 0 0 {name=x2 }
+C {SUN_TR_SKY130NM/SUNTR_RPPO8.sym} -350 -30 0 0 {name=x2 }
 C {devices/ipin.sym} -490 -230 0 0 {name=p1 lab=VDD_1V8}
 C {devices/ipin.sym} -490 300 0 0 {name=p2 lab=VSS}
 C {devices/ipin.sym} -490 -30 0 0 {name=p3 lab=VDA}
 C {devices/ipin.sym} -490 40 0 0 {name=p4 lab=VD}
 C {devices/ipin.sym} -490 10 0 0 {name=p5 lab=PWRUP_1V8}
-C {devices/ipin.sym} -490 140 0 0 {name=p6 lab=IBP_1U[4:0]}
+C {devices/ipin.sym} 430 -320 0 0 {name=p6 lab=IBP_1U[4:0]}
 C {devices/ipin.sym} 390 -440 0 0 {name=p7 lab=RESET_1V8}
 C {CNR_ATR_SKY130NM/CNRATR_NCH_2C1F2.sym} -190 -450 0 0 {name=x4 }
 C {CNR_ATR_SKY130NM/CNRATR_PCH_2C1F2.sym} -120 -380 0 0 {name=x5 }
@@ -150,7 +150,7 @@ C {devices/lab_wire.sym} 520 -400 0 0 {name=p11 sig_type=std_logic lab=VSS}
 C {SUN_TR_SKY130NM/SUNTR_RPPO16.sym} -20 -480 0 0 {name=x3 }
 C {devices/lab_wire.sym} -10 110 0 0 {name=p15 sig_type=std_logic lab=IBP_1U[0]}
 C {devices/ipin.sym} -500 -280 0 0 {name=p18 lab=DOWN_N_1V8}
-C {sky130_fd_pr/cap_mim_m3_2.sym} 60 -330 1 0 {name=C1 model=cap_mim_m3_2 W=10 L=10 MF=10 spiceprefix=X}
+C {sky130_fd_pr/cap_mim_m3_2.sym} 60 -330 1 0 {name=C1 model=cap_mim_m3_2 W=10 L=10 MF=4 spiceprefix=X}
 C {sky130_fd_pr/cap_mim_m3_2.sym} 160 220 0 0 {name=C2 model=cap_mim_m3_2 W=10 L=10 MF=10 spiceprefix=X}
 C {devices/opin.sym} 270 -20 0 0 {name=p12 lab=VO}
 C {devices/lab_wire.sym} 700 -440 0 0 {name=p23 sig_type=std_logic lab=RST_B_1V8
@@ -196,5 +196,5 @@ model=res_generic_m3
 mult=1}
 C {devices/lab_wire.sym} -240 -340 0 0 {name=p20 sig_type=std_logic lab=IDAC}
 C {devices/lab_wire.sym} 680 -100 0 0 {name=p21 sig_type=std_logic lab=IDAC}
-C {devices/lab_wire.sym} 640 -240 0 0 {name=p22 sig_type=std_logic lab=VG}
-C {SUN_TR_SKY130NM/SUNTR_RPPO2.sym} -460 -30 0 0 {name=x8 }
+C {SUN_TR_SKY130NM/SUNTR_RPPO4.sym} -460 -30 0 0 {name=x8 }
+C {devices/lab_wire.sym} 680 -200 0 0 {name=p22 sig_type=std_logic lab=VG}

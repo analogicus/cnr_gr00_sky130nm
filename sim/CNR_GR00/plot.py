@@ -33,8 +33,12 @@ for fname in files:
     df = pd.DataFrame(vals, columns=['x','y'])
     df = df.sort_values(by=['x', 'y'])
     df["y"] = df["y"] - offset
-    #df["est"] = -df["y"]*650 + 20
-    plt.plot(df["x"],df["y"],label=fname)
+    df["est"] = -df["y"]*1150 + 23
+
+    print(df["est"].max() - df["est"].min())
+    print(df["est"].min())
+
+    plt.plot(df["x"],df["est"],label=fname)
 
 
 plt.xlabel("Temperature [C]")

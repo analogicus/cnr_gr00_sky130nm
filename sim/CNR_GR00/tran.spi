@@ -45,7 +45,7 @@ VDD  VDD_1V8  0  pwl 0 0 10n {AVDD}
 VPW  PWRUP_1V8 0  pwl 0 0 10n {AVDD}
 VRE  RESET_1V8 0   pwl 0 {AVDD} 1u {AVDD} 1.001u 0
 
-VCLK CK_1V8 0 dc 0 pulse (0 {AVDD} 1u {TRF} {TRF} {PW_CLK} {PERIOD_CLK})
+VCLK CK_1V8 0 dc 0 pulse (0 {AVDD} 1.1u {TRF} {TRF} {PW_CLK} {PERIOD_CLK})
 
 *-----------------------------------------------------------------
 * DUT

@@ -12,7 +12,7 @@ D = f(t) : When VO > VD, then set output low. When VD < VO, set output high.
 
 The TFI and TTD forms a sigma-delta modulator, as such, the output is a pulse density modulated signal.} 150 -260 0 0 0.4 0.4 {}
 N 860 -700 910 -700 {
-lab=IBP_2U[2:0]}
+lab=IBP_1U[2:0]}
 N 860 -680 910 -680 {
 lab=VD}
 N 860 -660 910 -660 {
@@ -22,7 +22,7 @@ lab=VO}
 N 1180 -680 1190 -680 {
 lab=VO}
 N 760 -700 860 -700 {
-lab=IBP_2U[2:0]}
+lab=IBP_1U[2:0]}
 N 760 -680 860 -680 {
 lab=VD}
 N 760 -660 860 -660 {
@@ -77,8 +77,6 @@ N 950 -500 1250 -500 {
 lab=PWRUP_1V8}
 N 1250 -540 1250 -500 {
 lab=PWRUP_1V8}
-N 760 -640 910 -640 {
-lab=#net1}
 C {cborder/border_s.sym} 1250 -170 0 0 {
 user="wulff"
 company="wulff"}
@@ -89,11 +87,10 @@ C {CNR_GR00_SKY130NM/CNRG00_IFT.sym} 690 -670 0 0 {name=xi}
 C {CNR_GR00_SKY130NM/CNRG00_TFI.sym} 930 -560 0 0 {name=xt}
 C {devices/ipin.sym} 380 -480 0 0 {name=p4 lab=RESET_1V8}
 C {devices/lab_wire.sym} 1180 -680 0 0 {name=p5 sig_type=std_logic lab=VO}
-C {devices/lab_wire.sym} 900 -700 0 0 {name=p6 sig_type=std_logic lab=IBP_2U[2:0]}
+C {devices/lab_wire.sym} 900 -700 0 0 {name=p6 sig_type=std_logic lab=IBP_1U[3:0]}
 C {devices/lab_wire.sym} 900 -680 0 0 {name=p7 sig_type=std_logic lab=VD}
 C {devices/lab_wire.sym} 900 -660 0 0 {name=p8 sig_type=std_logic lab=VDA}
 C {devices/opin.sym} 1530 -680 0 0 {name=p9 lab=DO_1V8}
 C {CNR_GR00_SKY130NM/CNRG00_TTD.sym} 1230 -560 0 0 {name=xd}
 C {devices/lab_wire.sym} 1180 -660 0 0 {name=p11 sig_type=std_logic lab=VD}
 C {devices/ipin.sym} 380 -440 0 0 {name=p12 lab=CK_1V8}
-C {devices/lab_wire.sym} 900 -640 0 0 {name=p10 sig_type=std_logic lab=VDB}

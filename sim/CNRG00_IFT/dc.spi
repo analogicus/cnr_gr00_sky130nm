@@ -31,10 +31,13 @@ VPWR PWRUP_1V8 0 dc {AVDD}
 *-----------------------------------------------------------------
 * DUT
 *-----------------------------------------------------------------
-XDUT VDA VD IBP VDD_1V8 VSS PWRUP_1V8 CNRG00_IFT
+XDUT VDA VDB IBP2 IBP1 IBP0 VDD_1V8 VSS PWRUP_1V8 CNRG00_IFT
 
 
-VIBP IBP 0 dc 0.5
+VIB2 IBP2 0 dc 0.5
+VIBP1 IBP1 0 dc 0.5
+VIBP0 IBP0 0 dc 0.5
+
 
 *----------------------------------------------------------------
 * MEASURES
@@ -48,7 +51,8 @@ VIBP IBP 0 dc 0.5
 #ifdef Debug
 .save all
 #else
-.save v(VDA) v(VD) v(IBP) v(VDD_1V8) v(VSS) v(PWRUP_1V8) i(VIBP)
+.save v(VDA) v(VD) v(IBP) v(VDD_1V8) v(VSS) v(PWRUP_1V8)
+.save i(VIBP2) i(VIBP1) i(VIBP0)
 #endif
 
 *----------------------------------------------------------------
@@ -60,7 +64,7 @@ set color0=white
 set color1=black
 unset askquit
 
-optran 0 0 0 1n 100n 0
+optran 0 0 0 10n 4u 0
 
 
 dc TEMP -40 125 10

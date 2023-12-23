@@ -18,7 +18,10 @@
 *-----------------------------------------------------------------
 * PARAMETERS
 *-----------------------------------------------------------------
-.param TRF = 10p
+.param TRF = 100p
+
+.param t_start = 4u
+.param t_start_del = {t_start + TRF}
 
 *- 8 MHz clock frequency
 .param PERIOD_CLK = 200n
@@ -26,15 +29,7 @@
 *- 25% duty-cycle clock
 .param PW_CLK = PERIOD_CLK/2
 
-*- Frequency bin of the input signal
-.param fbin = 5
-
-*- number of cycles in FFT
-.param nbpt = 128
-
-*- Sampling frequency
-.param fs = 1/PERIOD_CLK
-
+*- Supply, vdda is set in includes
 .param AVDD = {vdda}
 
 *-----------------------------------------------------------------
@@ -43,9 +38,9 @@
 VSS  VSS  0     dc 0
 VDD  VDD_1V8  0  pwl 0 0 10n {AVDD}
 VPW  PWRUP_1V8 0  pwl 0 0 10n {AVDD}
-VRE  RESET_1V8 0   pwl 0 {AVDD} 1u {AVDD} 1.001u 0
+VRE  RESET_1V8 0   pwl 0 {AVDD} {t_start} {AVDD} {t_start_del} 0
 
-VCLK CK_1V8 0 dc 0 pulse (0 {AVDD} 1.1u {TRF} {TRF} {PW_CLK} {PERIOD_CLK})
+VCLK CK_1V8 0 dc 0 pulse 0 {AVDD} {t_start} {TRF} {TRF} {PW_CLK} {PERIOD_CLK}
 
 *-----------------------------------------------------------------
 * DUT
@@ -95,14 +90,14 @@ optran 0 0 0 100p 2n 0
 
 option temp=-40
 
-tran 1n 4u 1n
+tran 1n 8u 1n
 write {cicname}
 
 #else
 
 foreach vtemp -40 -20 0 20 40 80 125
   option temp=$vtemp
-  tran 1n 20u 1n
+  tran 1n 29.6u 1n
   write {cicname}_$vtemp
 end
 

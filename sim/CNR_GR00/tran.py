@@ -11,7 +11,7 @@ tsample = 200
 temps = [-40,-20,0,20,40,80,125]
 
 #- Must be the time to start sampling
-tstart = 1.9e-6
+tstart = 4.2e-6
 
 def getDout(rawfile):
     dfs = cs.toDataFrames(cs.ngRawRead(rawfile))

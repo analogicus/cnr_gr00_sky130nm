@@ -8,7 +8,7 @@ E {}
 T {I = f(T), Temperature to Current (and bias)} 400 -1040 0 0 1 1 {}
 T {A reference voltage is generated from VDD (VREF), which is copied across resistors to generate a 1 uA current. 
 The current is copied to two bipolars of different current densities.
-The difference between VD and VDA will be VBE= kT/q * ln(16*8)} 260 -180 0 0 0.4 0.4 {}
+The difference between VD and VDA will be VBE= kT/q * ln(4*8)} 260 -180 0 0 0.4 0.4 {}
 N 640 -790 640 -750 {
 lab=#net1}
 N 600 -720 640 -720 {
@@ -38,7 +38,7 @@ lab=VDD_1V8}
 N 1460 -850 1490 -850 {
 lab=VDD_1V8}
 N 1460 -790 1460 -750 {
-lab=VDS[3:0]}
+lab=VDS[4:0]}
 N 1230 -790 1230 -750 {
 lab=VDSA}
 N 1230 -720 1260 -720 {
@@ -84,9 +84,9 @@ lab=VSS}
 N 1230 -570 1280 -570 {
 lab=VDA}
 N 1460 -610 1500 -610 {
-lab=IBP_1U[2:0]}
+lab=IBP_1U[4:0]}
 N 1460 -690 1460 -610 {
-lab=IBP_1U[2:0]}
+lab=IBP_1U[4:0]}
 N 640 -270 640 -260 {
 lab=VSS}
 N 640 -300 680 -300 {
@@ -250,19 +250,19 @@ lab=VCP}
 C {cborder/border_s.sym} 1250 -170 0 0 {
 user="wulff"
 company="wulff"}
-C {CNR_ATR_SKY130NM/CNRATR_PCH_8C12F0.sym} 1420 -820 0 0 {name=xs2[3:0]}
-C {CNR_ATR_SKY130NM/CNRATR_PCH_8C12F0.sym} 1190 -820 0 0 {name=x2 }
+C {CNR_ATR_SKY130NM/CNRATR_PCH_8C12F0.sym} 1420 -820 0 0 {name=xs2[4:0]}
+C {CNR_ATR_SKY130NM/CNRATR_PCH_8C12F0.sym} 1190 -820 0 0 {name=x2[3:0]}
 C {CNR_ATR_SKY130NM/CNRATR_PCH_8C12F0.sym} 680 -820 0 1 {name=xs0[1:0]}
-C {CNR_ATR_SKY130NM/CNRATR_PCH_8C1F2.sym} 1420 -720 0 0 {name=xc2[3:0]}
-C {CNR_ATR_SKY130NM/CNRATR_PCH_8C1F2.sym} 1190 -720 0 0 {name=x6 }
+C {CNR_ATR_SKY130NM/CNRATR_PCH_8C1F2.sym} 1420 -720 0 0 {name=xc2[4:0]}
+C {CNR_ATR_SKY130NM/CNRATR_PCH_8C1F2.sym} 1190 -720 0 0 {name=x6[3:0]}
 C {CNR_ATR_SKY130NM/CNRATR_PCH_8C1F2.sym} 680 -720 0 1 {name=xc0[1:0]}
 C {sky130_fd_pr/pnp_05v5.sym} 1210 -320 0 0 {name=Q1
 model=pnp_05v5_W3p40L3p40
-m=4
+m=6
 spiceprefix=X
 }
 C {devices/opin.sym} 1280 -570 0 0 {name=p1 lab=VDA}
-C {devices/opin.sym} 1500 -610 0 0 {name=p3 lab=IBP_1U[3:0]
+C {devices/opin.sym} 1500 -610 0 0 {name=p3 lab=IBP_1U[4:0]
 }
 C {CNR_ATR_SKY130NM/CNRATR_NCH_8C1F2.sym} 600 -300 0 0 {name=x3 }
 C {devices/ipin.sym} 280 -850 0 0 {name=p4 lab=VDD_1V8
@@ -273,7 +273,7 @@ C {devices/ipin.sym} 270 -300 0 0 {name=p6 lab=PWRUP_1V8
 }
 C {devices/lab_wire.sym} 860 -720 0 0 {name=p7 sig_type=std_logic lab=VCP}
 C {devices/lab_wire.sym} 880 -820 0 0 {name=p8 sig_type=std_logic lab=VBP}
-C {devices/lab_wire.sym} 1460 -760 0 0 {name=p9 sig_type=std_logic lab=VDS[3:0]}
+C {devices/lab_wire.sym} 1460 -760 0 0 {name=p9 sig_type=std_logic lab=VDS[4:0]}
 C {CNR_ATR_SKY130NM/CNRATR_PCH_8C12F0.sym} 1070 -820 0 0 {name=x1[15:0]}
 C {CNR_ATR_SKY130NM/CNRATR_PCH_8C1F2.sym} 1070 -720 0 0 {name=x4[15:0]}
 C {sky130_fd_pr/pnp_05v5.sym} 1090 -320 0 0 {name=Q3

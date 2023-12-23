@@ -3,6 +3,7 @@ import pandas as pd
 import yaml
 import cicsim as cs
 import matplotlib.pyplot as plt
+import os
 
 #- Must match PERIOD_CLK in tran.spi
 tsample = 200
@@ -11,9 +12,13 @@ tsample = 200
 temps = [-40,-20,0,20,40,80,125]
 
 #- Must be the time to start sampling
-tstart = 4.2e-6
+tstart = 4.25e-6
 
 def getDout(rawfile):
+
+    if(not os.path.exists(rawfile)):
+        return 0
+
     dfs = cs.toDataFrames(cs.ngRawRead(rawfile))
     df = dfs[0]
 
@@ -32,6 +37,8 @@ def getDout(rawfile):
     ck = df["v(ck_1v8)"].resample(pd.Timedelta(tsample,unit="ns")).first()/vdd
 
     cks = ck.sum()
+
+    print(cks)
 
     #- Use a accumulation filter
     return float(do.sum()/cks)

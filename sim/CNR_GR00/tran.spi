@@ -88,10 +88,12 @@ optran 0 0 0 100p 2n 0
 
 #ifdef Nosweep
 
-option temp=-40
 
-tran 1n 8u 1n
-write {cicname}
+foreach vtemp -40 125
+  option temp=$vtemp
+  tran 1n 8u 1n
+  write {cicname}_$vtemp
+end
 
 #else
 

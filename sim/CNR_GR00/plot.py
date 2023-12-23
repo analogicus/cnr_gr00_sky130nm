@@ -44,5 +44,5 @@ for fname in files:
 plt.xlabel("Temperature [C]")
 plt.ylabel("Output")
 plt.legend()
-#plt.savefig("../../temp.svg")
+plt.savefig("../../temp.svg")
 plt.show()

@@ -1,0 +1,17 @@
+
+.control
+
+echo "MEAS_START"
+
+load {cicname}.raw
+
+let v-sweep=v(temp)
+
+meas DC i_min MIN i(vibp0)
+meas DC i_max MAX i(vibp0)
+meas DC i_25 AVG i(vibp0)
+
+plot v-sweep
+
+echo "MEAS_END"
+.endc

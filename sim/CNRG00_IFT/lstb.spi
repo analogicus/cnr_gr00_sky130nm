@@ -1,4 +1,4 @@
-*TB_SUN_TR_SKY130NM/TB_NCM
+*CNRG00 LSTB
 *----------------------------------------------------------------
 * Include
 *----------------------------------------------------------------
@@ -11,52 +11,52 @@
 *-----------------------------------------------------------------
 * OPTIONS
 *-----------------------------------------------------------------
-.option TNOM=27 GMIN=1e-15 reltol=1e-5
+.option reltol=1e-5 gmin=1e-15
+
 
 *-----------------------------------------------------------------
 * PARAMETERS
 *-----------------------------------------------------------------
-.param TRF = 10p
-
 .param AVDD = {vdda}
 
 *-----------------------------------------------------------------
 * FORCE
 *-----------------------------------------------------------------
 VSS  VSS  0     dc 0
-VDD  VDD_1V8  0 dc {AVDD}
+VDD  VDD_1V8  0  dc {AVDD}
+VPWR  PWRUP_1V8  VSS  dc {AVDD}
 
-VPWR PWRUP_1V8 0 dc {AVDD}
+*-----------------------------------------------------------------
+* Loop stability
+*-----------------------------------------------------------------
+.include ../../../../cpdk/ngspice/tian_subckt.lib
+X999 LPI LPO loopgainprobe
 
 *-----------------------------------------------------------------
 * DUT
 *-----------------------------------------------------------------
-XDUT VDA IBP4 IBP3 IBP2 IBP1 IBP0 VDD_1V8 VSS PWRUP_1V8 VD LPI LPI CNRG00_IFT
+XDUT VDA IBP4 IBP3 IBP2 IBP1 IBP0 VDD_1V8 VSS PWRUP_1V8 VD LPO LPI CNRG00_IFT
 
-VIB4 IBP4 0 dc 0.9
-VIB3 IBP3 0 dc 0.9
-VIB2 IBP2 0 dc 0.9
-VIBP1 IBP1 0 dc 0.9
-VIBP0 IBP0 0 dc 0.9
-
-B5 temp 0 v=temper
-
-*----------------------------------------------------------------
-* MEASURES
-*----------------------------------------------------------------
-
+*-----------------------------------------------------------------
+* STASH
+*-----------------------------------------------------------------
+V4 IBP4 0 dc {AVDD/2}
+V3 IBP3 0 dc {AVDD/2}
+V2 IBP2 0 dc {AVDD/2}
+V1 IBP1 0 dc {AVDD/2}
+V0 IBP0 0 dc {AVDD/2}
 
 *----------------------------------------------------------------
 * PROBE
 *----------------------------------------------------------------
+.save V(X999.x) I(v.X999.Vi)
+.save v(LPO) v(LPI) v(vd) v(vda)
 
 #ifdef Debug
-.save all
+*.save all
 #else
-.save v(VDA) v(VD) v(IBP) v(VDD_1V8) v(VSS) v(PWRUP_1V8)
 
-.save i(VIBP2) i(VIBP1) i(VIBP0)
-.save v(temp)
+
 #endif
 
 *----------------------------------------------------------------
@@ -68,18 +68,34 @@ set color0=white
 set color1=black
 unset askquit
 
-optran 0 0 0 5n 10u 0
-write {cicsim}_op
+optran 0 0 0 100n 20u 0
+op
+write {cicname}_op.raw
 
-tran 1n 10u
+*----------------------------------------------------------------
+* LSTB analysis
+*----------------------------------------------------------------
+* Set voltage AC to 1
+ac dec 50 100 10G
 
-write {cicname}_tran
+* Set Current to 1
+alter i.X999.Ii acmag=1
+alter v.X999.Vi acmag=0
+ac dec 50 100 10G
 
+let lg_mag = db(tian_loop())
+let lg_phase = 180*cph(tian_loop())/pi
 
-dc TEMP -40 125 10
+*set gnuplot_terminal=png/quit
+*gnuplot {cicname}_loop_gain lg_mag
+*gnuplot {cicname}_loop_phase lg_phase
+
 write
+
+#ifdef Debug
+*quit
+#else
+
 quit
-
+#endif
 .endc
-
-.end

@@ -77,6 +77,9 @@ N 950 -500 1250 -500 {
 lab=PWRUP_1V8}
 N 1250 -540 1250 -500 {
 lab=PWRUP_1V8}
+N 760 -630 770 -630 {}
+N 770 -630 770 -610 {}
+N 760 -610 770 -610 {}
 C {cborder/border_s.sym} 1250 -170 0 0 {
 user="wulff"
 company="wulff"}

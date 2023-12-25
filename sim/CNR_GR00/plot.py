@@ -36,7 +36,7 @@ for fname in files:
     df = pd.DataFrame(vals, columns=['x','y'])
     df = df.sort_values(by=['x', 'y'])
     df["y"] = df["y"] - offset
-    df["est"] = -df["y"]*236*(vdd/1.8) + 15
+    df["est"] = -df["y"]*236*(vdd/1.8) + 20
     diff = df["est"] - df["x"]
 
     #print(vdd)

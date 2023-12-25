@@ -13,7 +13,7 @@
 *-----------------------------------------------------------------
 * OPTIONS
 *-----------------------------------------------------------------
-.option TNOM=27 GMIN=1e-15 reltol=1e-4
+.option TNOM=27 GMIN=1e-15 reltol=1e-5
 
 *-----------------------------------------------------------------
 * PARAMETERS
@@ -60,19 +60,20 @@ XDUT VDD_1V8 VSS PWRUP_1V8 RESET_1V8 DO_1V8 CK_1V8 CNR_GR00
 .save all
 #else
 .save v(VDD_1V8) v(VSS) v(PWRUP_1V8) v(RESET_1V8)  v(DO_1V8) v(CK_1V8)
-.save v(xdut.ibp) v(xdut.vd) v(xdut.vda) (xdut.vdb) v(xdut.xt.vg) v(xdut.xt.voa) v(xdut.xt.vref)
-.save v(xdut.xt.xota.vbp)
-.save v(xdut.xt.xota.vbn1)
-.save v(xdut.xt.xota.vbn2)
+.save v(xdut.ibp) v(xdut.vd) v(xdut.vda)
+*.save v(xdut.xt.vg) v(xdut.xt.voa) v(xdut.xt.vref)
+*.save v(xdut.xt.xota.vbp)
+*.save v(xdut.xt.xota.vbn1)
+*.save v(xdut.xt.xota.vbn2)
 .save v(xdut.vo)
-.save v(xdut.vdb)
-.save v(xdut.xi.vdb_on_1v8)
-.save v(xdut.xi.vda_on_1v8)
-.save v(xdut.xd.vop)
-.save v(xdut.xd.von)
-.save v(xdut.xd.xcmp.von0)
-.save v(xdut.xd.xcmp.vop0)
-.save v(xdut.xd.xcmp.vs)
+*.save v(xdut.vdb)
+*.save v(xdut.xi.vdb_on_1v8)
+*.save v(xdut.xi.vda_on_1v8)
+*.save v(xdut.xd.vop)
+*.save v(xdut.xd.von)
+*.save v(xdut.xd.xcmp.von0)
+*.save v(xdut.xd.xcmp.vop0)
+*.save v(xdut.xd.xcmp.vs)
 #endif
 
 *----------------------------------------------------------------
@@ -101,10 +102,10 @@ foreach vtemp -40 -20 0 20 40 80 125
   option temp=$vtemp
 *- 32*200n = 8.4 us =>
 *- 64*200n = 16.8us => +5us =22us
-  tran 1n 22u 1n
+*-  tran 1n 22u 1n
 *- 128*200n = 25.6us => +5u = 31us
 *- 256*200n = 55.2us => +5us = 61us
-*  tran 1n 61u 1n
+  tran 1n 61u 1n
   write {cicname}_$vtemp
 end
 

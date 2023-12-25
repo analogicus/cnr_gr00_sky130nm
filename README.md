@@ -13,7 +13,7 @@ or bjt's are given by
  
 $$ \Delta V_{BE} = \frac{k T}{q} \log A $$
  
-where A difference in area (or indeed current).
+where A difference in current densities.
  
 The temperature sensor is a first order continuous time sigma-delta
 modulator with the delta base-emitter voltage as input.
@@ -22,8 +22,8 @@ The schematics are as follows.
  
 ## Temperature to Current (TFI)
 
-Resistive biased current mirror that feeds into two diodes, and provides bias
-currents.
+Using VDD as the reference voltage, a voltage to current converter is used to
+create an 1 uA bias current. A current mirror copies to two bipolars.
 
 ## Current to Time (IFT)
 
@@ -33,11 +33,13 @@ virtual ground is forced by the OTA to be equal to the smaller diode (VD).
 As such, the current through the resistor also has to flow through a capacitor
 acting like an integrator.
 
-## Time to Digital (top)
+To ensure the voltage at VO is controlled there is a feedback DAC (controlled by
+DOWN_N_1V8) that inverses the integration. 
+
+## Time to Digital (TTD)
 
 The output of the integrator is sampled by a strong arm comparator. The output
-signal is fed back to the IFT to reverse the integration.
-
+signal is fed back to the IFT to reverse the integration when needed. 
 
 
 # What
@@ -54,18 +56,18 @@ signal is fed back to the IFT to reverse the integration.
 | Version | Status | Comment|
 | :-| :-| :-|
 |0.1.0 | :white_check_mark: | Working prototype |
+|0.2.0 | :white_check_mark: | Fixed bias, increased accuracy |
 
 
 # Signal interface
-| Signal     | Direction | Domain  | Description                   |
-|:-----------|:---------:|:-------:|:------------------------------|
-| VDD_1V8    | Input     | VDD_1V8 | Main supply                   |
-| RESET_1V8  | Input     | VDD_1V8 | Reset integrator              |
-| PWRUP_1V8  | Input     | VDD_1V8 | Power up the circuit          |
-| DO_1V8     | Output    | VDD_1V8 | Digital output                |
-| VO_1V8     | Output    | VDD_1V8 | Analog signal pre-comparator  |
-| DOWN_N_1V8 | Output    | VDD_1V8 | DAC feedback, short to DO_1V8 |
-| VSS        | Input     | Ground  |                               |
+| Signal    | Direction | Domain  | Description                         |
+|:----------|:---------:|:-------:|:------------------------------------|
+| VDD_1V8   | Input     | VDD_1V8 | Main supply                         |
+| RESET_1V8 | Input     | VDD_1V8 | Reset integrator                    |
+| PWRUP_1V8 | Input     | VDD_1V8 | Power up the circuit                |
+| DO_1V8    | Output    | VDD_1V8 | Digital output                      |
+| CK_1V8    | Input     | VDD_1V8 | Clock for comparator, default 5 MHz |
+| VSS       | Input     | Ground  |                                     |
 
 
 
@@ -83,7 +85,7 @@ signal is fed back to the IFT to reverse the integration.
 |:----------------------------|:----:|:------------------:|:-------:|
 | Specification               | DOC  | :white_check_mark: |         |
 | Schematic                   | VIEW | :white_check_mark: |         |
-| Schematic simulation        | VER  | N/A                |         |
+| Schematic simulation        | VER  | :white_check_mark: |         |
 | Layout                      | VIEW | :x:                |         |
 | Layout parasitic extraction | VIEW | :x:                |         |
 | LPE simulation              | VER  | :x:                |         |
@@ -96,10 +98,17 @@ signal is fed back to the IFT to reverse the integration.
 
 # Temperature characteristics
 
-The temperature sensor is functional, but still buggy, as can be seen from the plot below.
+The temperature sensor seems decent. A one-point accuracy of about +-5 degrees.
 
-The principle, however, seems to work well.
+The variation in VDD with corners is assumed to be possible to know, and
+adjusted for in the final temperature error calculation as per [plot.py](sim/CNR_GR00/plot.py)
 
+## Typical corner
+![](tran_Sch_typical.svg)
 
-![](temp.svg)
+## Extreme Test Condition
+![](tran_Sch_etc.svg)
+
+## Monte-Carlo
+![](tran_Sch_mc.svg)
 

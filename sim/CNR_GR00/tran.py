@@ -14,6 +14,8 @@ temps = [-40,-20,0,20,40,80,125]
 #- Must be the time to start sampling
 tstart = 4.25e-6
 
+
+
 def getDout(rawfile):
 
     if(not os.path.exists(rawfile)):
@@ -41,7 +43,7 @@ def getDout(rawfile):
     #print(cks)
 
     #- Use a accumulation filter
-    return float(do.sum()/cks)
+    return (float(do.sum()/cks),len(ck))
 
 
 def main(name):
@@ -54,9 +56,21 @@ def main(name):
       # Do something to parameters
 
   data = dict()
+  maxN = 0
+  vmin = 2
+  vmax = 0
   for temp in temps:
-      do = getDout(f"{name}_{temp}")
+      (do,N) = getDout(f"{name}_{temp}")
+      if(do < vmin):
+          vmin = do
+      if(do > vmax):
+          vmax = do
+      if(N > maxN):
+          maxN = N
       obj[f"do_{temp}"]  = do
+
+  obj["nbpts"] = maxN
+  obj["resolution"] = (125 + 40)/maxN/(vmax-vmin)
 
   #plt.show()
   # Save new yaml file

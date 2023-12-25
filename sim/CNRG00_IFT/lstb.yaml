@@ -22,7 +22,7 @@ gain:
   name: DC gain
   typ: 40
   min: 35
-  max: 55
+  max: 80
   scale: 1
   unit: dB
 
@@ -64,9 +64,9 @@ vd:
 
 vddiff:
   src: vdiff
-  name: VD Error
+  name: Delta VBE
   typ: 0
-  min: -6
-  max: 6
+  min: 83
+  max: 85
   scale: 1e3
   unit: "mV"

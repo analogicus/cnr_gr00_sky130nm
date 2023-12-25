@@ -33,7 +33,7 @@ for fname in files:
     df = pd.DataFrame(vals, columns=['x','y'])
     df = df.sort_values(by=['x', 'y'])
     df["y"] = df["y"] - offset
-    df["est"] = -df["y"]*1150 + 23
+    df["est"] = -df["y"]*236 + 15
 
     print(df["est"].max() - df["est"].min())
     print(df["est"].min())

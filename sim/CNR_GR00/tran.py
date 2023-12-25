@@ -38,7 +38,7 @@ def getDout(rawfile):
 
     cks = ck.sum()
 
-    print(cks)
+    #print(cks)
 
     #- Use a accumulation filter
     return float(do.sum()/cks)

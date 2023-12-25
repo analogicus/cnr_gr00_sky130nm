@@ -68,10 +68,8 @@ set color0=white
 set color1=black
 unset askquit
 
-optran 0 0 0 5n 10u 0
+optran 0 0 0 100n 20u 0
 write {cicsim}_op
-
-tran 1n 10u
 
 write {cicname}_tran
 

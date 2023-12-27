@@ -1,0 +1,14 @@
+* NGSPICE file created from SUNTR_CAP_20.ext - technology: sky130B
+
+* Replacing the lpe port list (../tech/scripts/fixlpe)
+.subckt SUNTR_CAP_20 A B
+*.subckt SUNTR_CAP_20 A B
+R0 A m3_5076_132# sky130_fd_pr__res_generic_m3 w=0.44 l=0.36
+R1 m3_252_308# B sky130_fd_pr__res_generic_m3 w=0.44 l=0.36
+C0 A B 33.2f
+C1 m3_5076_132# B 0.17f
+C2 m3_252_308# A 0.106f
+C3 B VSUBS 8.68f
+C4 A VSUBS 8.67f
+.ends
+

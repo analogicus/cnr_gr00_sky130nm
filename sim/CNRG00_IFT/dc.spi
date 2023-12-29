@@ -28,6 +28,10 @@ VDD  VDD_1V8  0 dc {AVDD}
 
 VPWR PWRUP_1V8 0 dc {AVDD}
 
+.nodeset v(VDA) = 0.9
+.nodeset v(VD) = 0.9
+.nodeset v(LPI) = 0.9
+
 *-----------------------------------------------------------------
 * DUT
 *-----------------------------------------------------------------
@@ -69,10 +73,6 @@ set color1=black
 unset askquit
 
 optran 0 0 0 100n 20u 0
-write {cicsim}_op
-
-write {cicname}_tran
-
 
 dc TEMP -40 125 10
 write

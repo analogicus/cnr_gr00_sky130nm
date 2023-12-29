@@ -1,3 +1,5 @@
+options:
+  useTmpDir: True
 corner:
   Lay: ''
   Sch: ''

@@ -8,7 +8,7 @@ E {}
 T {I = f(T), Temperature to Current (and bias)} 400 -1040 0 0 1 1 {}
 T {A reference voltage is generated from VDD (VREF), which is copied across resistors to generate a 1 uA current. 
 The current is copied to two bipolars of different current densities.
-The difference between VD and VDA will be VBE= kT/q * ln(4*8)} 260 -180 0 0 0.4 0.4 {}
+The difference between VD and VDA will be VBE= kT/q * ln(4*8)} 860 -200 0 0 0.4 0.4 {}
 N 840 -790 840 -750 {
 lab=#net1}
 N 800 -720 840 -720 {
@@ -91,11 +91,11 @@ N 840 -270 840 -260 {
 lab=VSS}
 N 840 -300 880 -300 {
 lab=VSS}
-N 270 -300 800 -300 {
+N 270 -210 800 -210 {
 lab=PWRUP_1V8}
 N 280 -850 800 -850 {
 lab=VDD_1V8}
-N 270 -260 840 -260 {
+N 190 -260 840 -260 {
 lab=VSS}
 N 910 -820 910 -770 {
 lab=VBP}
@@ -157,8 +157,6 @@ N 350 -620 470 -620 {
 lab=VSS}
 N 350 -590 480 -590 {
 lab=#net7}
-N 410 -360 410 -260 {
-lab=VSS}
 N 430 -400 430 -260 {
 lab=VSS}
 N 160 -620 160 -610 {
@@ -174,29 +172,23 @@ lab=VSS}
 N 420 -820 420 -750 {
 lab=#net6}
 N 280 -520 280 -500 {
-lab=VSS}
-N 280 -500 280 -260 {
-lab=VSS}
-N 160 -510 280 -510 {
-lab=VSS}
-N 280 -510 300 -510 {
-lab=VSS}
+lab=#net8}
 N 300 -560 300 -510 {
 lab=VSS}
 N 280 -740 280 -720 {
-lab=#net8}
+lab=#net9}
 N 280 -850 280 -820 {
 lab=VDD_1V8}
 N 840 -440 900 -440 {
 lab=#net4}
 N 980 -440 1010 -440 {
-lab=#net9}
+lab=#net10}
 N 1090 -440 1110 -440 {
 lab=VCP}
 N 1090 -360 1110 -360 {
-lab=#net10}
-N 980 -360 1010 -360 {
 lab=#net11}
+N 980 -360 1010 -360 {
+lab=#net12}
 N 840 -360 900 -360 {
 lab=#net3}
 N 940 -420 940 -380 {
@@ -244,11 +236,11 @@ lab=#net5}
 N 640 -790 640 -380 {
 lab=VBP}
 N 740 -790 740 -380 {
-lab=#net12}
+lab=#net13}
 N 680 -350 700 -350 {
-lab=#net12}
+lab=#net13}
 N 690 -430 690 -350 {
-lab=#net12}
+lab=#net13}
 N 640 -320 640 -260 {
 lab=VSS}
 N 740 -320 740 -260 {
@@ -266,7 +258,7 @@ lab=VSS}
 N 620 -310 640 -310 {
 lab=VSS}
 N 690 -430 740 -430 {
-lab=#net12}
+lab=#net13}
 N 640 -640 910 -640 {
 lab=VBP}
 N 860 -500 880 -500 {
@@ -278,9 +270,9 @@ lab=VSS}
 N 1050 -400 1150 -400 {
 lab=VSS}
 N 1190 -440 1190 -360 {
-lab=#net13}
-N 410 -470 410 -440 {
 lab=#net14}
+N 410 -470 410 -440 {
+lab=#net15}
 N 410 -590 410 -550 {
 lab=#net7}
 N 1100 -660 1100 -440 {
@@ -291,6 +283,95 @@ N 810 -600 840 -600 {
 lab=LPO}
 N 1200 -790 1200 -770 {
 lab=VBP}
+N 800 -300 800 -210 {
+lab=PWRUP_1V8}
+N 410 -300 430 -300 {
+lab=VSS}
+N 410 -360 410 -330 {
+lab=#net16}
+N 410 -270 410 -260 {
+lab=VSS}
+N 370 -300 370 -210 {
+lab=PWRUP_1V8}
+N 970 -960 1070 -960 {
+lab=VDD_1V8}
+N 970 -930 990 -930 {
+lab=VDD_1V8}
+N 990 -960 990 -930 {
+lab=VDD_1V8}
+N 1070 -930 1100 -930 {
+lab=VDD_1V8}
+N 1100 -960 1100 -930 {
+lab=VDD_1V8}
+N 1070 -960 1100 -960 {
+lab=VDD_1V8}
+N 1070 -900 1070 -820 {
+lab=VBP}
+N 970 -900 970 -720 {
+lab=VCP}
+N 1030 -980 1030 -930 {
+lab=PWRUP_1V8}
+N 340 -980 1030 -980 {
+lab=PWRUP_1V8}
+N 930 -980 930 -930 {
+lab=PWRUP_1V8}
+N 600 -930 620 -930 {
+lab=VDD_1V8}
+N 620 -960 620 -930 {
+lab=VDD_1V8}
+N 600 -960 620 -960 {
+lab=VDD_1V8}
+N 620 -960 970 -960 {
+lab=VDD_1V8}
+N 1100 -930 1100 -850 {
+lab=VDD_1V8}
+N 600 -900 600 -820 {
+lab=#net6}
+N 700 -930 720 -930 {
+lab=VDD_1V8}
+N 720 -960 720 -930 {
+lab=VDD_1V8}
+N 700 -900 700 -820 {
+lab=#net5}
+N 660 -980 660 -930 {
+lab=PWRUP_1V8}
+N 560 -980 560 -930 {
+lab=PWRUP_1V8}
+N 280 -270 280 -260 {
+lab=VSS}
+N 250 -300 280 -300 {
+lab=VSS}
+N 250 -300 250 -260 {
+lab=VSS}
+N 280 -500 280 -330 {
+lab=#net8}
+N 320 -300 370 -300 {
+lab=PWRUP_1V8}
+N 300 -510 300 -460 {
+lab=VSS}
+N 250 -420 300 -460 {
+lab=VSS}
+N 250 -420 250 -300 {
+lab=VSS}
+N 250 -510 250 -420 {
+lab=VSS}
+N 160 -510 250 -510 {
+lab=VSS}
+N 390 -110 410 -110 {
+lab=PWRUP_1V8}
+N 390 -210 390 -110 {
+lab=PWRUP_1V8}
+N 490 -110 640 -110 {
+lab=PWRUP_N_1V8}
+N 450 -70 500 -70 {
+lab=VSS}
+N 450 -150 500 -150 {
+lab=VDD_1V8}
+N 590 -350 620 -350 {}
+N 590 -320 590 -260 {}
+N 590 -430 590 -380 {}
+N 590 -430 690 -430 {}
+N 550 -350 550 -110 {}
 C {cborder/border_s.sym} 1250 -170 0 0 {
 user="wulff"
 company="wulff"}
@@ -311,9 +392,9 @@ C {devices/opin.sym} 1600 -610 0 0 {name=p3 lab=IBP_1U[4:0]
 C {CNR_ATR_SKY130NM/CNRATR_NCH_8C1F2.sym} 800 -300 0 0 {name=x3 }
 C {devices/ipin.sym} 210 -850 0 0 {name=p4 lab=VDD_1V8
 }
-C {devices/ipin.sym} 270 -260 0 0 {name=p5 lab=VSS
+C {devices/ipin.sym} 190 -260 0 0 {name=p5 lab=VSS
 }
-C {devices/ipin.sym} 270 -300 0 0 {name=p6 lab=PWRUP_1V8
+C {devices/ipin.sym} 270 -210 0 0 {name=p6 lab=PWRUP_1V8
 }
 C {devices/lab_wire.sym} 1060 -720 0 0 {name=p7 sig_type=std_logic lab=VCP}
 C {devices/lab_wire.sym} 1080 -820 0 0 {name=p8 sig_type=std_logic lab=VBP}
@@ -352,3 +433,15 @@ C {SUN_TR_SKY130NM/SUNTR_RPPO8.sym} 1190 -360 2 0 {name=x16 }
 C {SUN_TR_SKY130NM/SUNTR_RPPO16.sym} 410 -470 3 0 {name=x17 }
 C {devices/opin.sym} 810 -600 0 1 {name=p2 lab=LPO}
 C {devices/ipin.sym} 570 -620 0 1 {name=p14 lab=LPI}
+C {CNR_ATR_SKY130NM/CNRATR_NCH_8C1F2.sym} 370 -300 0 0 {name=x18 }
+C {CNR_ATR_SKY130NM/CNRATR_PCH_2C4F0.sym} 930 -930 0 0 {name=xp}
+C {CNR_ATR_SKY130NM/CNRATR_PCH_2C4F0.sym} 1030 -930 0 0 {name=xp1}
+C {devices/lab_wire.sym} 340 -980 0 0 {name=p13 sig_type=std_logic lab=PWRUP_1V8}
+C {CNR_ATR_SKY130NM/CNRATR_PCH_2C4F0.sym} 560 -930 0 0 {name=xp2}
+C {CNR_ATR_SKY130NM/CNRATR_PCH_2C4F0.sym} 660 -930 0 0 {name=xp3}
+C {CNR_ATR_SKY130NM/CNRATR_NCH_8C1F2.sym} 320 -300 0 1 {name=x19 }
+C {SUN_TR_SKY130NM/SUNTR_IVX1_CV.sym} 410 -110 0 0 {name=x20 }
+C {devices/lab_wire.sym} 640 -110 0 0 {name=p15 sig_type=std_logic lab=PWRUP_N_1V8}
+C {devices/lab_wire.sym} 500 -70 0 0 {name=p16 sig_type=std_logic lab=VSS}
+C {devices/lab_wire.sym} 500 -150 0 0 {name=p17 sig_type=std_logic lab=VDD_1V8}
+C {CNR_ATR_SKY130NM/CNRATR_NCH_8C4F0.sym} 550 -350 0 0 {name=x21 }

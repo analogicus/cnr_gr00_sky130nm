@@ -45,7 +45,8 @@ VCLK CK_1V8 0 dc 0 pulse 0 {AVDD} {t_start} {TRF} {TRF} {PW_CLK} {PERIOD_CLK}
 *-----------------------------------------------------------------
 * DUT
 *-----------------------------------------------------------------
-XDUT VDD_1V8 VSS PWRUP_1V8 RESET_1V8 DO_1V8 CK_1V8 CNR_GR00
+.include ../xdut.spi
+*XDUT VDD_1V8 VSS PWRUP_1V8 RESET_1V8 DO_1V8 CK_1V8 CNR_GR00
 
 *----------------------------------------------------------------
 * MEASURES

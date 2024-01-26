@@ -8,7 +8,7 @@ E {}
 T {I = f(T), Temperature to Current (and bias)} 400 -1040 0 0 1 1 {}
 T {A reference voltage is generated from VDD (VREF), which is copied across resistors to generate a 1 uA current. 
 The current is copied to two bipolars of different current densities.
-The difference between VD and VDA will be VBE= kT/q * ln(4*8)} 860 -200 0 0 0.4 0.4 {}
+The difference between VD and VDA will be VBE= kT/q * ln(4*8)} 640 -190 0 0 0.4 0.4 {}
 N 840 -790 840 -750 {
 lab=#net1}
 N 800 -720 840 -720 {

@@ -6,7 +6,7 @@ V {}
 S {}
 E {}
 T {Temperature sensor} 650 -1020 0 0 1 1 {}
-T {I = f(T) : DeltaVBE = (VD - VDA) = kT/q*ln(8)
+T {I = f(T) : DeltaVBE = (VD - VDA) = kT/q*ln(4*6)
 t = f(I) : DeltaVBE to current. Integrate current to generate a ramp on VO.
 D = f(t) : When VO > VD, then set output low. When VD < VO, set output high.
 

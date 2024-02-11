@@ -14,6 +14,8 @@ PREFIX=
 LIB=CNR_GR00_SKY130NM
 CELL=CNR_GR00
 
+SVGLIBS= ${LIB}
+
 #- Provide cells you want to check for the lvsall drcall commands
 CELLS = CNR_GR00
 

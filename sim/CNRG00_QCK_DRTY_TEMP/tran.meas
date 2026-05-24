@@ -12,6 +12,8 @@ foreach vtemp -40 -20 0 20 40 80 125
 set fend = .raw
 load {cicname}_$vtemp$fend
 
+let ipvdd_off = -i(vdd)[1]
+
 let cut-tstart = 10n
 let cut-tstop = 100n
 cutout
@@ -19,6 +21,7 @@ cutout
 let ipvdd = -i(vdd)
 
 meas tran ivdd_$vtemp AVG ipvdd
+meas tran ivdd_off_$vtemp AVG ipvdd
 
 
 *- Do FFT

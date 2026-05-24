@@ -15,7 +15,7 @@ with open(frun) as fi:
         files.append(line.strip() + ".yaml")
 
 
-fig,ax = plt.subplots(nrows=1,ncols=1,sharex=True,height_ratios=[1],figsize=(12,9))
+fig,ax = plt.subplots(nrows=2,ncols=1,sharex=True,height_ratios=[4,1],figsize=(12,9))
 
 if(type(ax) != list):
     axtmp = list()
@@ -29,6 +29,7 @@ for fname in files:
     data = dict()
     vals = list()
     idd = list()
+    offset = 0
 
     for k in obj:
         if("ivdd" in k):
@@ -38,16 +39,20 @@ for fname in files:
             (dd,v) = k.split("freq_")
             dv = int(v)
             vals.append([dv,obj[k]])
+            if(dv==20):
+                offset = obj[k]
 
+    print(offset)
     nidd = np.array(idd)
     df = pd.DataFrame(vals, columns=['x','y'])
     df = df.sort_values(by=['x', 'y'])
-    df["y"] = df["y"]/1e6
+    df["est"] = (df["y"] - offset)/1e6
+    diff = df["x"].diff()
 
     avgy = df["y"].mean()
-    ax[0].plot(df["x"],df["y"],label=fname)
+    ax[0].plot(df["x"],df["est"],label=fname)
     ax[0].text(-40,avgy,"IDD = (MAX: %.2f, AVG: %.2f, MIN: %.2f) uA" %(nidd.max(),nidd.mean(),nidd.min()))
-
+    ax[1].plot(df["x"],diff)
 
 
 

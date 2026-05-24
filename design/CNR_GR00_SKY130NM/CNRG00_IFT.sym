@@ -1,5 +1,4 @@
-v {xschem version=3.4.4 file_version=1.2
-}
+v {xschem version=3.4.7 file_version=1.2}
 G {}
 K {type=subcircuit
 format="@name @pinlist @symname"
@@ -41,3 +40,4 @@ T {VSS} 36 105 3 0 0.2 0.2 {}
 T {I=f(T)} -80 0 0 0 0.4 0.4 {}
 T {LPO} 45 36 0 1 0.2 0.2 {}
 T {LPI} 45 56 0 1 0.2 0.2 {}
+T {I=f(T)} -80 0 0 0 0.4 0.4 {}
